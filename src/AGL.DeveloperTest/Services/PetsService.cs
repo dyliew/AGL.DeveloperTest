@@ -14,6 +14,7 @@ namespace AGL.DeveloperTest.Services
                 .SelectMany(p => p.Pets)
                 .Where(p => p.Type.Equals(type, StringComparison.InvariantCultureIgnoreCase))
                 .Select(p => p.Name)
+                .OrderBy(p => p)
                 .ToList();
         }
     }

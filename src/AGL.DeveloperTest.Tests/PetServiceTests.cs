@@ -1,4 +1,5 @@
-﻿using AGL.DeveloperTest.Models;
+﻿using System;
+using AGL.DeveloperTest.Models;
 using AGL.DeveloperTest.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -51,7 +52,7 @@ namespace AGL.DeveloperTest.Tests
             var names = service.GetPetNamesByOwnerGenderAndPetType(_owners, Gender.Male.ToString(), PetType.Dog.ToString());
 
             Assert.AreEqual(1, names.Count);
-            Assert.IsTrue(names.Contains("Fido"));
+            Assert.IsTrue(names[0].Equals("Fido", StringComparison.InvariantCultureIgnoreCase));
             Assert.IsFalse(names.Contains("Clumsy"));
             Assert.IsFalse(names.Contains("Garfield"));
         }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using AGL.DeveloperTest.Controllers;
 using AGL.DeveloperTest.Models;
 using AGL.DeveloperTest.Services;
@@ -92,13 +93,13 @@ namespace AGL.DeveloperTest.Tests
             Assert.IsNotNull(model);
 
             Assert.AreEqual(4, model.MaleOwnersCatNames.Count);
-            Assert.IsTrue(model.MaleOwnersCatNames.Contains("Garfield"));
-            Assert.IsTrue(model.MaleOwnersCatNames.Contains("Tom"));
-            Assert.IsTrue(model.MaleOwnersCatNames.Contains("Max"));
-            Assert.IsTrue(model.MaleOwnersCatNames.Contains("Jim"));
+            Assert.IsTrue(model.MaleOwnersCatNames[0].Equals("Garfield", StringComparison.InvariantCultureIgnoreCase));
+            Assert.IsTrue(model.MaleOwnersCatNames[1].Equals("Jim", StringComparison.InvariantCultureIgnoreCase));
+            Assert.IsTrue(model.MaleOwnersCatNames[2].Equals("Max", StringComparison.InvariantCultureIgnoreCase));
+            Assert.IsTrue(model.MaleOwnersCatNames[3].Equals("Tom", StringComparison.InvariantCultureIgnoreCase));
 
             Assert.AreEqual(1, model.FemaleOwnersCatNames.Count);
-            Assert.IsTrue(model.FemaleOwnersCatNames.Contains("Simba"));
+            Assert.IsTrue(model.FemaleOwnersCatNames[0].Equals("Simba", StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }
