@@ -1,0 +1,20 @@
+﻿@model ResultViewModel
+
+<h1>AGL Programming Challenge</h1>
+
+<h4>Male</h4>
+<ul>
+    @foreach (var name in Model.MaleOwnersCatNames)
+    {
+        <li>@name</li>
+    }
+</ul>
+
+<br />
+<h4>Female</h4>
+<ul>
+    @foreach (var name in Model.FemaleOwnersCatNames)
+    {
+        <li>@name</li>
+    }
+</ul>
